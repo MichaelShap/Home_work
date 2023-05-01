@@ -9,53 +9,15 @@
 # Ожидаемый вывод:
 # [2, 6, 10]
 
-# V1
-# Начал с того, чтобы сделать сперва просто рабочую ф-ю, без МАР пока
+def chet_nechet(list):
+    if list % 2 != 0:
+        return list * 2
 
-def chet_nechet(list): # создаю ф-ю, которая содержит какой-то рагумент list
-    nechet_list = [] # создаю пустой список
-    for i in list: # если й в списке
-        if i % 2 != 0:  # и если й нечетное
-            nechet_list.append(i * 2) # добавляю й * 2 в новый список nechet_list
-    print(nechet_list) # печатаю его
-chet_nechet([1, 2, 3, 4, 5]) # а здесь ввожу аргумент этой функции - список из чисел
+num_list = [1, 2, 3, 4, 5]
+map_list = list(map(chet_nechet, num_list))
 
-# здесь оно работате как надо, все ок.
+while None in map_list:
+    map_list.remove(None)
 
-
-# V2
-# теперь, с той же логикой, пробую продолжить через МАР
-# копирую код с предыдущего варианта,
-# но, убираю часть со стороки 19, т.к. нужна только ф-я, а список задам отдельно
-# также меню принт на  return:
-
-# def chet_nechet(list):
-#     nechet_list = []
-#     for i in list:
-#         if i % 2 != 0:
-#             nechet_list.append(i * 2)
-#     return nechet_list
-#
-# num_list = [1, 2, 3, 4, 5]
-# map_list = list(map(chet_nechet, num_list))
-# print(map_list)
-
-# иии, не работает, ошибка стр 31б 37 инт нот итераБЛЕ
-# и вот я не понимаю, почему...
-# предполагаю, потому, что в первом случае я в функцию давал список строкой 19
-# и по этому for i in list отрабатыва? а его нет и не рабоатет? но это же бред,
-# суть функции то не изменилась
-
-
-# V3
-# Далее сляпал вот такой вариант
-# но тут действие со всей строкой, и лишние значения не убираются
-
-# def title_str(list):
-#     if list % 2 != 0:
-#         return list * 2
-#
-# num_list = [1, 2, 3, 4, 5]
-# map_list = list(map(title_str, num_list))
-# print(map_list)
+print(map_list)
 
